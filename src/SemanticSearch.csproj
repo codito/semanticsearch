@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- Code analysis settings -->
+  <PropertyGroup>
+    <!-- Code analysis -->
+    <CodeAnalysisRuleSet>../stylecop.ruleset</CodeAnalysisRuleSet>
+
+    <!-- Show full paths for the warnings and errors -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateFullPaths>true</GenerateFullPaths>
+
+    <NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libtorch-cpu" Version="1.8.0.7" />
+    <PackageReference Include="Microsoft.ML" Version="1.5.5" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.8.0" />
+    <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="1.5.5" />
+    <PackageReference Include="numsharp" Version="0.30.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="torchsharp" Version="0.91.52604" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="../stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+    
+  <!-- Code analysis settings -->
+  <PropertyGroup>
+    <!-- Code analysis -->
+    <CodeAnalysisRuleSet>../stylecop.ruleset</CodeAnalysisRuleSet>
+
+    <!-- Show full paths for the warnings and errors -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateFullPaths>true</GenerateFullPaths>
+
+    <NoWarn>$(NoWarn),1573,1591,1712</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
+    <PackageReference Include="coverlet.collector" Version="1.3.0" />
+
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.333">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="../stylecop.json">
+      <Link>stylecop.json</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\SemanticSearch.csproj" />
+  </ItemGroup>
+
+</Project>
